@@ -59,12 +59,7 @@ Mozilla 的中文主页定位在 https://www.mozilla.org/zh-CN/.
 
 URL使用路径查找文件。路径指定文件系统中您感兴趣的文件所在的位置。看一下一个简单的目录结构的例子（源码可查看 [创建超链接（creating-hyperlinks](https://github.com/roy-tian/learning-area/tree/master/html/introduction-to-html/creating-hyperlinks)）。）
 
-![A simple directory structure. The parent directory is called
-creating-hyperlinks and contains two files called index.html and
-contacts.html, and two directories called projects and pdfs, which
-contain an index.html and a project-brief.pdf file,
-respectively](media/image1.png){width="5.768055555555556in"
-height="3.582638888888889in"}
+<!--此处差一个图片-->
 
 **Same directory**: If you wanted to include a hyperlink
 inside index.html (the top level index.html) pointing to contacts.html,
