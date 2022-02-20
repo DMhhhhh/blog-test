@@ -131,10 +131,8 @@ CSSOM 树和 DOM
 First, the browser combines the DOM and CSSOM into a \"render tree,\"
 which captures all the visible DOM content on the page and all the CSSOM
 style information for each node.第一步是让浏览器将 DOM 和 CSSOM
-合并成一个"渲染树"，网罗网页上所有可见的 DOM 内容，以及每个节点的所有
-CSSOM 样式信息。![将 DOM 与 CSSOM
-合并以形成渲染树](media/image4.png){width="5.768055555555556in"
-height="2.6944444444444446in"}
+合并成一个"渲染树"，网罗网页上所有可见的 DOM 内容，以及每个节点的所有CSSOM 样式信息。
+![avatar](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/images/render-tree-construction.png)
 
 To construct the render tree, the browser roughly does the
 following为构建渲染树，浏览器大体上完成了下列工作:
