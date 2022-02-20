@@ -32,9 +32,7 @@ HTML 和 CSS 都提供给浏览器。
     Chrome DevTools Timeline 让我们可以捕获和检查 DOM 和 CSSOM的构建和处理开销。
 
 ### Document Object Model 文档对象模型(DOM)
-
-![](media/image1.png){width="5.768055555555556in"
-height="3.196527777777778in"}
+![avatar](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/images/full-process.png)
 
 1.  **Conversion:** The browser reads the raw bytes of HTML off the disk
     or network, and translates them to individual characters based on
@@ -42,7 +40,7 @@ height="3.196527777777778in"}
 
     **转换**:浏览器从磁盘或网络读取HTML的原始字节，并根据文件的指定编码（例如UTF-8）将它们转换成各个字符。
 
-1.  **Tokenizing:** The browser converts strings of characters into
+2.  **Tokenizing:** The browser converts strings of characters into
     distinct tokens---as specified by the [[W3C HTML5
     standard]](http://www.w3.org/TR/html5/); for example,
     \"\<html\>\", \"\<body\>\"---and other strings within angle
@@ -50,12 +48,12 @@ height="3.196527777777778in"}
 
     **令牌化**:浏览器将字符串转换成 [W3C HTML5标准](http://www.w3.org/TR/html5/)规定的各种令牌，例如，"\<html\>"、"\<body\>"，以及其他尖括号内的字符串。每个令牌都具有特殊含义和一组规则。
 
-2.  **Lexing:** The emitted tokens are converted into \"objects,\" which
+3.  **Lexing:** The emitted tokens are converted into \"objects,\" which
     define their properties and rules.
 
     **词法分析**:发出的令牌转换成定义其属性和规则的"对象"。
 
-1.  **DOM construction:** Finally, because the HTML markup defines
+4.  **DOM construction:** Finally, because the HTML markup defines
     relationships between different tags (some tags are contained within
     other tags) the created objects are linked in a tree data structure
     that also captures the parent-child relationships defined in the
@@ -78,15 +76,15 @@ that the browser can understand and work with. Hence, we repeat the HTML
 process, but for CSS instead of HTML:
 
 与处理HTML时一样，我们需要将收到的CSS规则转换成某种浏览器能够理解和处理的东西。因此，我们会重复HTML过程，不过是为CSS而不是
-HTML: ![CSSOM 构建步骤](media/image2.png){width="5.768055555555556in"
-height="0.3715277777777778in"}
+HTML:
+![avatar](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/images/cssom-construction.png)
 
 The CSS bytes are converted into characters, then tokens, then nodes,
 and finally they are linked into a tree structure known as the \"CSS
 Object Model\" (CSSOM):
 
-![](media/image3.png){width="5.768055555555556in"
-height="2.9604166666666667in"}CSS字节转换成字符，接着转换成令牌和节点，最后链接到一个称为"CSS对象模型"(CSSOM)的树结构内:
+CSS字节转换成字符，接着转换成令牌和节点，最后链接到一个称为"CSS对象模型"(CSSOM)的树结构内:
+![avatar](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/images/cssom-tree.png)
 
 Also, note that the above tree is not the complete CSSOM tree and only
 shows the styles we decided to override in our stylesheet. Every browser
