@@ -114,33 +114,48 @@ B: 有，但是没带 // 含有属性名，但是值为 undefined
 
 #### 查看自身所有属性
 
+```
 Object.keys(obj)
+```
 
 #### 查看自身+共有属性
 
+```
 console.dir(obj)
+```
 
 或者自己依次用 Object.keys 打印出 obj.\_\_proto\_\_
 
 #### 判断一个属性是自身的还是共有的
 
+```javascript
 obj.hasOwnProperty(\'toString\')
+```
 
 ### 查看属性
 
 #### 两种方法查看属性
 
-[中括号语法]{.underline}：obj\[\'key\'\]
+中括号语法：
+```javascript
+obj['key']
+```
 
-[点语法]{.underline}：obj.key
+点语法：
+```javascript
+obj.key
+```
 
-坑新人语法：obj\[key\] // 变量 key 值一般不为 \'key\'
+坑新人语法：
+```javascript
+obj[key] // 变量 key 值一般不为 \'key\'
+```
 
 #### 请优先使用中括号语法
 
-[点语法]{.underline}会误导你，让你以为 key 不是字符串
+点语法会误导你，让你以为 key 不是字符串
 
-等你确定不会弄混两种语法，再改用[点语法]{.underline}
+等你确定不会弄混两种语法，再改用点语法
 
 ## 如何修改或增加对象的属性
 
