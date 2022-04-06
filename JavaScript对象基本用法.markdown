@@ -11,9 +11,9 @@ to store various keyed collections and more complex entities.
 ### 写法
 
 ```javascript
-let obj = { \'name\': \'frank\', \'age\': 18 }
+let obj = { 'name': 'frank', 'age': 18 }
 
-let obj = new Object({\'name\': \'frank\'})
+let obj = new Object({'name': 'frank'})
 ```
 
 键名是字符串，不是标识符，可以包含任意字符
@@ -33,9 +33,9 @@ let obj = new Object({\'name\': \'frank\'})
 ```javascript
 let obj = {
 
-1: \'a\',
+1: 'a',
 
-3.2: \'b\',
+3.2: 'b',
 
 1e2: true,
 
@@ -49,7 +49,7 @@ let obj = {
 
 Object.keys(obj)
 
-=\> \[\"1\", \"100\", \"255\", \"3.2\", \"0.01\", \"0.234\"\]
+=> ["1", "100", "255", "3.2", "0.01", "0.234"]
 ```
 #### 细节
 
@@ -62,11 +62,11 @@ Object.keys(obj) 可以得到 obj 的所有 key
 之前都是用常量做属性名
 
 ```javascript
-let p1 = \'name\'
+let p1 = 'name'
 
-let obj = { p1 : \'frank\'} 这样写，属性名为 \'p1\'
+let obj = { p1 : 'frank'} 这样写，属性名为 'p1'
 
-let obj = { \[p1\] : \'frank\' } 这样写，属性名为 \'name\'
+let obj = { [p1] : 'frank' } 这样写，属性名为 'name'
 ```
 #### 对比
 
@@ -87,13 +87,13 @@ let obj = { \[p1\] : \'frank\' } 这样写，属性名为 \'name\'
 #### 不含属性名
 
 ```javascript
-\'xxx\' in obj === false
+'xxx' in obj === false
 ```
 
 #### 含有属性名，但是值为 undefined
 
 ```javascript
-\'xxx\' in obj && obj.xxx === undefined
+'xxx' in obj && obj.xxx === undefined
 ```
 
 #### 注意 obj.xxx === undefined
@@ -129,7 +129,7 @@ console.dir(obj)
 #### 判断一个属性是自身的还是共有的
 
 ```javascript
-obj.hasOwnProperty(\'toString\')
+obj.hasOwnProperty('toString')
 ```
 
 ### 查看属性
@@ -148,7 +148,7 @@ obj.key
 
 坑新人语法：
 ```javascript
-obj[key] // 变量 key 值一般不为 \'key\'
+obj[key] // 变量 key 值一般不为 'key'
 ```
 
 #### 请优先使用中括号语法
@@ -164,26 +164,25 @@ obj[key] // 变量 key 值一般不为 \'key\'
 #### 直接赋值
 
 ```javascript
-let obj = {name: \'frank\'} // name 是字符串
+let obj = {name: 'frank'} // name 是字符串
 
-obj.name = \'frank\' // name 是字符串
+obj.name = 'frank' // name 是字符串
 
-obj\[\'name\'\] = \'frank\'
+obj['name'] = 'frank'
 
-obj\[name\] = \'frank\' // 错，因 name 值不确定
+obj[name] = 'frank' // 错，因 name 值不确定
 
-obj\[\'na\'+\'me\'\] = \'frank\'
+obj\['na'+'me'] = 'frank'
 
-let key = \'name\'; obj\[key\] = \'frank\'
+let key = 'name'; obj[key] = 'frank'
 
-let key = \'name\'; obj.key = \'frank\' // 错，因为 obj.key 等价于
-obj\[\'key\'\]
+let key = 'name'; obj.key = 'frank' // 错，因为 obj.key 等价于obj['key']
 ```
 
 #### 批量赋值
 
 ```javascript
-Object.assign(obj, {age: 18, gender: \'man\'})
+Object.assign(obj, {age: 18, gender: 'man'})
 ```
 
 ### 修改或增加共有属性
@@ -193,7 +192,7 @@ Object.assign(obj, {age: 18, gender: \'man\'})
 ```javascript
 let obj = {}, obj2 = {} // 共有 toString
 
-obj.toString = \'xxx\' 只会在改 obj 自身属性
+obj.toString = 'xxx' 只会在改 obj 自身属性
 
 obj2.toString 还是在原型上
 ```
@@ -201,9 +200,9 @@ obj2.toString 还是在原型上
 #### 我偏要修改或增加原型上的属性
 
 ```javascript
-obj.\_\_proto\_\_.toString = \'xxx\' // 不推荐用 \_\_proto\_\_
+obj.__proto__.toString = 'xxx' // 不推荐用 __proto__
 
-Object.prototype.toString = \'xxx\'
+Object.prototype.toString = 'xxx'
 ```
 
 一般来说，不要修改原型，会引起很多问题
@@ -213,15 +212,15 @@ Object.prototype.toString = \'xxx\'
 #### 不推荐使用 \_\_proto\_\_
 
 ```javascript
-let obj = {name:\'frank\'}
+let obj = {name:'frank'}
 
-let obj2 = {name: \'jack\'}
+let obj2 = {name: 'jack'}
 
-let common = {kind: \'human\'}
+let common = {kind: 'human'}
 
-obj.\_\_proto\_\_ = common
+obj.__proto__ = common
 
-obj2.\_\_proto\_\_ = common
+obj2.__proto__ = common
 ```
 
 #### 推荐使用 Object.create
@@ -229,11 +228,11 @@ obj2.\_\_proto\_\_ = common
 ```javascript
 let obj = Object.create(common)
 
-obj.name = \'frank\'
+obj.name = 'frank'
 
 let obj2 = Object.create(common)
 
-obj2.name = \'jack\'
+obj2.name = 'jack'
 ```
 
 规范大概的意思是，要改就一开始就改，别后来再改
