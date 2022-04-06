@@ -172,7 +172,7 @@ obj['name'] = 'frank'
 
 obj[name] = 'frank' // 错，因 name 值不确定
 
-obj\['na'+'me'] = 'frank'
+obj['na'+'me'] = 'frank'
 
 let key = 'name'; obj[key] = 'frank'
 
