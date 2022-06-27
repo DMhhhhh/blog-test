@@ -93,7 +93,7 @@ while 后面的语句。
 语句是这个样子的：
 
 ```javascript
-for (\[initialExpression\]; \[condition\]; \[incrementExpression\])
+for ([initialExpression]; [condition]; [incrementExpression])
 
     statement
 ```
